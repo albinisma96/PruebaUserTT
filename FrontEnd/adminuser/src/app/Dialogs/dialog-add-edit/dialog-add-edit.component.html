@@ -1,0 +1,103 @@
+<h1 mat-dialog-title>{{tituloAccion}}</h1>
+<hr>
+<div mat-dialog-content>
+  <form [formGroup]="formUsuario">
+  <mat-grid-list cols="2" rowHeight="6:1">
+    <mat-grid-tile ><label><b>Departamentos:</b></label></mat-grid-tile>
+    <mat-grid-tile ><label><b>Cargo:</b></label></mat-grid-tile>
+ 
+  </mat-grid-list>
+  <mat-grid-list cols="2" rowHeight="4:1">
+    <mat-grid-tile>
+      <mat-form-field>
+        <mat-label>Seleccione un Departamento</mat-label>
+        <mat-select formControlName="idDepartamento">
+          <mat-option *ngFor="let depas of listaDepartamentos" [value]="depas.id">
+            {{depas.nombre}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+   </mat-grid-tile>
+
+   <mat-grid-tile>
+    <mat-form-field>
+      <mat-label>Seleccione un Cargo</mat-label>
+      <mat-select formControlName="idCargo" >
+        <mat-option *ngFor="let cargo of listaCargos" [value]="cargo.id">
+          {{cargo.nombre}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+ </mat-grid-tile>
+
+  </mat-grid-list>
+    
+  <mat-grid-list cols="2" rowHeight="6:1">
+    <mat-grid-tile ><label><b>Usuario</b></label></mat-grid-tile>
+    <mat-grid-tile ><label><b>Email:</b></label></mat-grid-tile>
+ 
+  </mat-grid-list>
+  <mat-grid-list cols="2" rowHeight="3:1">
+    <mat-grid-tile>
+      <mat-form-field appearance="outline">
+        <input matInput formControlName="usuario" autocomplete="off">
+
+      </mat-form-field>
+   </mat-grid-tile>
+   <mat-grid-tile>
+    <mat-form-field appearance="outline">
+      <input matInput formControlName="correo" autocomplete="off">
+ 
+    </mat-form-field>
+ </mat-grid-tile>
+  </mat-grid-list>
+
+  <mat-grid-list cols="2" rowHeight="6:1">
+    <mat-grid-tile ><label><b>Primer Nombre</b></label></mat-grid-tile>
+    <mat-grid-tile ><label><b>Segundo Nombre:</b></label></mat-grid-tile>
+ 
+  </mat-grid-list>
+  <mat-grid-list cols="2" rowHeight="3:1">
+    <mat-grid-tile>
+      <mat-form-field appearance="outline">
+        <input matInput formControlName="primerNombre" autocomplete="off">
+
+      </mat-form-field>
+   </mat-grid-tile>
+   <mat-grid-tile>
+    <mat-form-field appearance="outline">
+      <input matInput formControlName="segundoNombre" autocomplete="off">
+ 
+    </mat-form-field>
+ </mat-grid-tile>
+  </mat-grid-list>
+
+  <mat-grid-list cols="2" rowHeight="6:1">
+    <mat-grid-tile ><label><b>Primer Apellido</b></label></mat-grid-tile>
+    <mat-grid-tile ><label><b>Segundo Apellido:</b></label></mat-grid-tile>
+ 
+  </mat-grid-list>
+  <mat-grid-list cols="2" rowHeight="3:1">
+    <mat-grid-tile>
+      <mat-form-field appearance="outline">
+        <input matInput formControlName="primerApellido" autocomplete="off">
+
+      </mat-form-field>
+   </mat-grid-tile>
+   <mat-grid-tile>
+    <mat-form-field appearance="outline">
+      <input matInput formControlName="segundoApellido" autocomplete="off">
+ 
+    </mat-form-field>
+ </mat-grid-tile>
+  </mat-grid-list>
+
+
+</form>
+</div>
+<hr>
+<div mat-dialog-actions align="end" >
+  <button mat-raised-button color="primary" [disabled]="formUsuario.invalid" (click)="addEditUsuario()">{{botonAccion}}</button>
+ 
+ <button mat-dialog-close mat-stroked-button color="primary">Cancelar</button>
+</div>
